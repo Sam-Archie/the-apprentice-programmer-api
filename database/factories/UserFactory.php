@@ -25,7 +25,7 @@ class UserFactory extends Factory
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'user_name' => $this->faker->userName,
+            "user_name" => $this->faker->userName,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
             "isAdmin" => false,
@@ -48,7 +48,7 @@ class UserFactory extends Factory
         });
     }
 
-    public function admin()
+    public function isAdmin()
     {
         $this->state([
             "isAdmin" => true

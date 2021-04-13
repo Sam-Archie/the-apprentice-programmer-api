@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function makeAdmin()
     {
-        return $this->isAdmin == true;
+        return $this->isAdmin === true;
     }
 
     public function fullName()
