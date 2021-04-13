@@ -32,4 +32,5 @@ class Post extends Model
     {
         return $this->updated_at->diffForHumans();
     }
+
 }
