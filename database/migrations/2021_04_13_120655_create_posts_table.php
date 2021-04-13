@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string("user_name")->nullable();
             $table->text("content")->nullable();
             $table->integer("likes")->nullable();
-            $table->string('image')->nullable();
+            $table->string('image_name')->nullable();
             $table->string('image_path')->nullable();
             $table->foreignId("user_id")->constrained()->onDelete("cascade");
         });
