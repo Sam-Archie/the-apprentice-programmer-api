@@ -60,4 +60,14 @@ class User extends Authenticatable
     {
         return "{$this->first_name} {$this->last_name}";
     }
+
+    public function memberSince()
+    {
+        return $this->email_verified_at->diffForHumans();
+    }
+
+    public function lastUpdated()
+    {
+        return $this->updated_at->diffForHumans();
+    }
 }
