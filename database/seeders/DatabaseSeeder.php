@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,11 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->hasPosts(3)->create();
-        foreach(Post::all() as $post) {
-            $post->factory()->hasComments(5)->create();
-            $post->factory()->hasAttached(Tag::factory()->count(10))->create();
-        }
+        Post::factory(10)->hasComments(3)->hasAttached(Tag::factory()->count(3))->create();
     }
-}
+    }
 

@@ -3,6 +3,8 @@
 namespace App\Http\Resources;
 
 use App\Models\Post;
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -21,6 +23,7 @@ class PostResource extends JsonResource
                 "user_id" => $this->user->id,
                 "username" => $this->user->user_name,
             ],
+            "post" => [
             "post_id" => $this->id,
             "title" => $this->title,
             "content" => $this->content,
@@ -29,6 +32,7 @@ class PostResource extends JsonResource
             "updated_at" => $this->lastUpdated(),
             "image_name" => $this->image_name,
             "image_path" => $this->image_path,
+            ],
         ];
     }
 }
