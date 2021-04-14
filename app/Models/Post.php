@@ -27,4 +27,10 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function lastUpdated()
+    {
+        return $this->updated_at->diffForHumans();
+    }
+
 }

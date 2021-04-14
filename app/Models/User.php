@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function makeAdmin()
+    {
+        return $this->isAdmin === true;
+    }
+
+    public function fullName()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }
