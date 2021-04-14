@@ -38,9 +38,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PostRequest $postRequest)
+    public function show(Post $post)
     {
-        return new PostResource($postRequest);
+        return new PostResource($post);
     }
 
     /**
