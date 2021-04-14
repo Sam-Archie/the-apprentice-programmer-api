@@ -12,6 +12,13 @@ use App\Http\Resources\PostSearchResource;
 
 class PostController extends Controller
 {
+
+    public $postModel;
+
+    public function __construct()
+    {   
+        $this->postModel = new Post;
+    }
     /**
      * Display a listing of the resource.
      *
