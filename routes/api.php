@@ -33,13 +33,11 @@ Route::group(["prefix" => "/posts"], function() {
         Route::delete("", [PostController::class, "destroy"]);
 
         Route::group(["prefix" => "tags"], function() {
-            Route::get("", [TagController::class, "show"]);
             Route::put("", [TagController::class, "update"]);
             Route::delete("", [TagController::class, "destroy"]);
         });
 
         Route::group(["prefix" => "comments"], function() {
-            Route::get("", [CommentController::class, "show"]);
             Route::put("", [CommentController::class, "update"]);
             Route::delete("", [CommentController::class, "destroy"]);
         });
