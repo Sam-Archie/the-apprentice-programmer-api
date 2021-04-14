@@ -7,7 +7,6 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Resources\CommentResource;
-use Illuminate\Support\Facades\DB;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\PostSearchResource;
 
@@ -29,9 +28,13 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $data = $request->all();
+
+        $post = Post::create($data);
+
+        return new PostResource($post);
 
     }
 
@@ -53,9 +56,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        
+        $data = $request->all();
+
+        $post->update($data);
+
+        return new PostResource($post);
     }
 
     /**
@@ -64,9 +71,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        
+        $post->delete();
+
+        return response(null, 204);
     }
 
     public function searchPostTitle(...$title)
