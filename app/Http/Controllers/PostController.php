@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\PostSearchResource;
 
@@ -37,9 +38,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(PostRequest $postRequest)
     {
-        return new PostResource($post);
+        return new PostResource($postRequest);
     }
 
     /**
