@@ -36,13 +36,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
-    {
+    {                
         $data = $request->all();
 
-        $post = Post::create($data);
+        $post = Post::create($data)->setTags($request->get("tags"));
 
         return new PostResource($post);
-
     }
 
     /**
@@ -68,6 +67,8 @@ class PostController extends Controller
         $data = $request->all();
 
         $post->update($data);
+
+        $post->setTags($request->get("tags"));
 
         return new PostResource($post);
     }
