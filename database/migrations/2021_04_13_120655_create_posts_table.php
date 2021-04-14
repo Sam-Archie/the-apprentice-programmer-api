@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string("title")->nullable();
-            $table->string("user_name")->nullable();
             $table->text("content")->nullable();
             $table->integer("likes")->nullable();
             $table->string('image_name')->nullable();

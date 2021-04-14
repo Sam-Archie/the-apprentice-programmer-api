@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->text('content')->nullable();
             $table->integer('likes');
             $table->foreignId('post_id')->constrained()->onDelete("cascade");
+            $table->foreignId('user_id')->constrained()->onDelete("cascade");
         });
     }
 

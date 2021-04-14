@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -26,7 +27,6 @@ class PostFactory extends Factory
         return [
             "user_id" => User::factory(),
             "title" => $this->faker->sentence(),
-            "user_name" => $this->faker->userName,
             "title" => $this->faker->sentence(),
             "content" => $this->faker->paragraph(3),
             "likes" => $this->faker->randomDigitNotNull,

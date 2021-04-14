@@ -34,8 +34,9 @@ class PostRequest extends FormRequest
             "content" => ["required", "string"],
             "likes" => ["integer"],
             "user_id" => ["required", "integer"],
+            "comments" => ["array"],
             "tags" => ["required", "array"],
-            "tags.*" => ["string", "max:30"]
-        ];
+            "tags.*" => ["string", "max:30"],
+        ]; 
     }
 }
