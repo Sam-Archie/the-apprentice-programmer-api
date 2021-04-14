@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 
 class UserController extends Controller
@@ -24,9 +25,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        
+        $data = $request->all();
+
+        $user = User::create($data);
+
+        return new UserResource($data);
     }
 
     /**
@@ -47,9 +52,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, User $user)
     {
+
+        $data = $request->all();
+
+        $user->update($data);
         
+        return new UserResource($user);
     }
 
     /**
@@ -58,8 +68,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return response(null, 204);
     }
 }

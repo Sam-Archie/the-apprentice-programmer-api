@@ -17,7 +17,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        "user_name",
+        "last_name",
+        'first_name',
         'email',
         'password',
     ];
@@ -63,7 +65,7 @@ class User extends Authenticatable
 
     public function memberSince()
     {
-        return $this->email_verified_at->diffForHumans();
+        return $this->created_at->diffForHumans();
     }
 
     public function lastUpdated()
