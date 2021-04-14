@@ -29,7 +29,7 @@ class PostRequest extends FormRequest
             "content" => ["required", "string"],
             "likes" => ["integer"],
             "comments" => ["array"],
-            "tags" => ["required", "array"],
+            "tags" => ["required", "array"],//Issues with updating tags
             "tags.*" => ["string", "max:30"],
         ]; 
     }
