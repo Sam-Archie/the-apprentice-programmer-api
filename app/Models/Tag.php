@@ -25,6 +25,6 @@ class Tag extends Model
     {
         return collect($strings)->map(fn($str) => trim($str))
         ->unique()
-        ->map(fn($str) => Tag::firstOrCreate(["name" => $str]));
+        ->map(fn($str) => Tag::firstOrCreate(["tag" => $str]));
     }
 }

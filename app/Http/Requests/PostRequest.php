@@ -27,7 +27,6 @@ class PostRequest extends FormRequest
         return [
             "title" => ["required", "string"],
             "content" => ["required", "string"],
-            "user_name" => ["required", "string"],
             "likes" => ["integer"],
             "comments" => ["array"],
             "tags" => ["required", "array"], 
