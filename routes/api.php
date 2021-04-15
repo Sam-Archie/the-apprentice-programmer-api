@@ -33,6 +33,7 @@ Route::group(["prefix" => "/posts"], function() {
         Route::delete("", [PostController::class, "destroy"]);
 
         Route::group(["prefix" => "comments"], function() {
+            Route::post("", [CommentController::class, "store"]);
             Route::put("", [CommentController::class, "update"]);
             Route::delete("", [CommentController::class, "destroy"]);
         });

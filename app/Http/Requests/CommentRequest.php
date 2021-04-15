@@ -23,8 +23,7 @@ class CommentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            "user_name"  => ["required", "string", "max:50"], 
+        return [ 
             "content" => ["required", "string"],
             "likes" => ["integer"],
         ];

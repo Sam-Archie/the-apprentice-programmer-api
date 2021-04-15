@@ -16,9 +16,10 @@ class CommentController extends Controller
 
         $comment = new Comment($data);
 
-        $comment->article()->associate($post);
+        $comment->post()->associate($post);
 
         $post->save();
+
 
         return new CommentResource($comment);
     }
