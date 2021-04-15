@@ -33,4 +33,13 @@ class Post extends Model
         return $this->updated_at->diffForHumans();
     }
 
+    public function setTags(array $strings) : Post
+    {
+        $tags = Tag::fromStrings($strings);
+
+        $this->tags()->sync($tags->pluck("id"));
+
+        return $this;
+    }
+
 }
